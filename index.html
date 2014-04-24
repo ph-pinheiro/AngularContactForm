@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Contact Form with angular</title>
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <header class="body"></header>
+    <section class="body">
+      <div ng-app="contactFormApp" ng-controller="formController">
+        <div ng-show="message"><p class="info">{{ message }}</p></div>
+        <form ng-submit="processForm()">
+          <div ng-class="{ 'has-error' : errorName }">
+            <label>Name</label>
+            <input name="name" placeholder="Type Here" ng-model="formData.name" />
+            <span ng-show="errorName"><p class="error">{{ errorName }}</p></span>
+          </div>
+          <div ng-class="{ 'has-error' : errorEmail }">
+            <label>Email</label>
+            <input name="email" type="email" placeholder="Type Here" ng-model="formData.email" />
+            <span ng-show="errorEmail"><p class="error">{{ errorEmail }}</p></span>
+          </div>
+          <div ng-class="{ 'has-error' : errorMessage }">
+            <label>Message</label>
+            <textarea name="message" placeholder="Type Here" ng-model="formData.message"></textarea>
+            <span ng-show="errorMessage"><p class="error">{{ errorMessage }}</p></span>
+          </div>
+          <input class="submit" name="send" type="submit" value="Submit" />
+        </form>
+      </div>
+    </section>
+    <footer class="body"></footer>
+  </body>
+
+</html>
